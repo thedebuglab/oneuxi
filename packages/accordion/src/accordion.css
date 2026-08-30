@@ -1,0 +1,285 @@
+/* =================================================================
+   @oneuxi/accordion — accordion.css
+   Includes full design token definitions for standalone use.
+   ================================================================= */
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+
+:root {
+  --ui-bg: #ffffff;
+  --ui-fg: #111111;
+  --ui-muted: #6b7280;
+  --ui-border: #e5e7eb;
+  --ui-border-strong: #d1d5db;
+
+  --ui-primary: #111111;
+  --ui-primary-ghost-hover: rgba(17, 17, 17, 0.04);
+
+  --ui-radius-sm: 4px;
+  --ui-radius-md: 6px;
+  --ui-radius-lg: 10px;
+
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-space-5: 20px;
+  --ui-space-6: 24px;
+
+  --ui-font-size-sm: 0.8125rem;
+  --ui-font-size-md: 0.875rem;
+  --ui-font-size-lg: 1rem;
+  --ui-font-weight-medium: 500;
+  --ui-font-weight-semibold: 600;
+  --ui-line-height: 1.5;
+
+  --ui-duration-normal: 180ms;
+}
+
+[data-theme="dark"] {
+  --ui-bg: #0f0f0f;
+  --ui-fg: #f5f5f5;
+  --ui-muted: #9ca3af;
+  --ui-border: #2a2a2a;
+  --ui-border-strong: #3f3f3f;
+  --ui-primary: #f5f5f5;
+  --ui-primary-ghost-hover: rgba(245, 245, 245, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ui-bg: #0f0f0f;
+    --ui-fg: #f5f5f5;
+    --ui-muted: #9ca3af;
+    --ui-border: #2a2a2a;
+    --ui-border-strong: #3f3f3f;
+    --ui-primary: #f5f5f5;
+    --ui-primary-ghost-hover: rgba(245, 245, 245, 0.05);
+  }
+}
+
+/* ── Accordion root ────────────────────────────────────────────── */
+
+[data-ui="accordion"] {
+  width: 100%;
+}
+
+/* ── Accordion item ────────────────────────────────────────────── */
+
+[data-ui="accordion-item"] {
+  width: 100%;
+}
+
+[data-ui="accordion-item"][data-disabled="true"] {
+  opacity: 0.5;
+}
+
+/* ── Header (heading element) ──────────────────────────────────── */
+
+[data-ui="accordion-header"] {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* ── Trigger (button) ──────────────────────────────────────────── */
+
+[data-ui="accordion-trigger"] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--ui-font-size-md);
+  font-weight: var(--ui-font-weight-medium);
+  line-height: var(--ui-line-height);
+  color: var(--ui-fg);
+  text-align: left;
+  padding: var(--ui-space-4) 0;
+  gap: var(--ui-space-3);
+  transition: color var(--ui-duration-normal) ease;
+}
+
+[data-ui="accordion-trigger"]:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+  border-radius: var(--ui-radius-sm);
+}
+
+[data-ui="accordion-trigger"]:hover:not([disabled]) {
+  color: var(--ui-muted);
+}
+
+[data-ui="accordion-trigger"][disabled] {
+  cursor: not-allowed;
+}
+
+/* ── Trigger label ─────────────────────────────────────────────── */
+
+[data-ui="accordion-trigger-label"] {
+  flex: 1;
+}
+
+/* ── Chevron ───────────────────────────────────────────────────── */
+
+[data-ui="accordion-chevron"] {
+  flex-shrink: 0;
+  transition: transform var(--ui-duration-normal) ease;
+}
+
+[data-ui="accordion-trigger"][data-state="open"] [data-ui="accordion-chevron"] {
+  transform: rotate(180deg);
+}
+
+/* ── Content (always in DOM — CSS-driven open/close) ───────────── */
+
+[data-ui="accordion-content"] {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--ui-duration-normal) ease,
+    visibility 0s var(--ui-duration-normal);
+}
+
+[data-ui="accordion-content"][data-state="open"] {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows var(--ui-duration-normal) ease,
+    visibility 0s 0s;
+}
+
+[data-ui="accordion-content-inner"] {
+  overflow: hidden;
+  min-height: 0;
+  font-size: var(--ui-font-size-md);
+  color: var(--ui-muted);
+  line-height: 1.6;
+}
+
+/* ── Size variants (content padding) ──────────────────────────── */
+
+[data-ui="accordion"][data-size="sm"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-3) 0;
+  font-size: var(--ui-font-size-sm);
+}
+
+[data-ui="accordion"][data-size="sm"] [data-ui="accordion-content-inner"] {
+  font-size: var(--ui-font-size-sm);
+}
+
+[data-ui="accordion"][data-size="lg"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-5) 0;
+  font-size: var(--ui-font-size-lg);
+}
+
+[data-ui="accordion"][data-size="lg"] [data-ui="accordion-content-inner"] {
+  font-size: var(--ui-font-size-lg);
+}
+
+/* ── Minimal variant (default) — bottom border only ────────────── */
+
+[data-ui="accordion"][data-variant="minimal"] [data-ui="accordion-item"] {
+  border-bottom: 1px solid var(--ui-border);
+}
+
+[data-ui="accordion"][data-variant="minimal"] [data-ui="accordion-content-inner"] {
+  padding-bottom: var(--ui-space-4);
+}
+
+/* ── Bordered variant — full border on each item ───────────────── */
+
+[data-ui="accordion"][data-variant="bordered"] {
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-md);
+  overflow: hidden;
+}
+
+[data-ui="accordion"][data-variant="bordered"] [data-ui="accordion-item"] {
+  border-bottom: 1px solid var(--ui-border);
+}
+
+[data-ui="accordion"][data-variant="bordered"] [data-ui="accordion-item"]:last-child {
+  border-bottom: none;
+}
+
+[data-ui="accordion"][data-variant="bordered"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-4);
+}
+
+[data-ui="accordion"][data-variant="bordered"] [data-ui="accordion-content-inner"] {
+  padding: 0 var(--ui-space-4) var(--ui-space-4);
+}
+
+[data-ui="accordion"][data-variant="bordered"][data-size="sm"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-3);
+}
+
+[data-ui="accordion"][data-variant="bordered"][data-size="sm"] [data-ui="accordion-content-inner"] {
+  padding: 0 var(--ui-space-3) var(--ui-space-3);
+}
+
+[data-ui="accordion"][data-variant="bordered"][data-size="lg"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-5);
+}
+
+[data-ui="accordion"][data-variant="bordered"][data-size="lg"] [data-ui="accordion-content-inner"] {
+  padding: 0 var(--ui-space-5) var(--ui-space-5);
+}
+
+/* ── Separated variant — individual card-like items ────────────── */
+
+[data-ui="accordion"][data-variant="separated"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+}
+
+[data-ui="accordion"][data-variant="separated"] [data-ui="accordion-item"] {
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-md);
+  overflow: hidden;
+}
+
+[data-ui="accordion"][data-variant="separated"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-4);
+}
+
+[data-ui="accordion"][data-variant="separated"] [data-ui="accordion-content-inner"] {
+  padding: 0 var(--ui-space-4) var(--ui-space-4);
+}
+
+[data-ui="accordion"][data-variant="separated"][data-size="sm"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-3);
+}
+
+[data-ui="accordion"][data-variant="separated"][data-size="sm"] [data-ui="accordion-content-inner"] {
+  padding: 0 var(--ui-space-3) var(--ui-space-3);
+}
+
+[data-ui="accordion"][data-variant="separated"][data-size="lg"] [data-ui="accordion-trigger"] {
+  padding: var(--ui-space-5);
+}
+
+[data-ui="accordion"][data-variant="separated"][data-size="lg"] [data-ui="accordion-content-inner"] {
+  padding: 0 var(--ui-space-5) var(--ui-space-5);
+}
+
+/* ── Reduced motion ────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-ui="accordion-content"] {
+    transition: none;
+  }
+
+  [data-ui="accordion-chevron"] {
+    transition: none;
+  }
+}

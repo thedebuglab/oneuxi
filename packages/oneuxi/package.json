@@ -1,0 +1,61 @@
+{
+  "name": "oneuxi",
+  "version": "0.1.0",
+  "description": "OneUXI — React + Next.js UI library. Easy by default.",
+  "keywords": [
+    "react",
+    "nextjs",
+    "ui",
+    "components",
+    "button",
+    "accordion",
+    "accessible",
+    "typescript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedebuglab/oneuxi.git",
+    "directory": "packages/oneuxi"
+  },
+  "homepage": "https://github.com/thedebuglab/oneuxi#readme",
+  "bugs": {
+    "url": "https://github.com/thedebuglab/oneuxi/issues"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "bin": {
+    "oneuxi": "./src/cli.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": ["**/*.css"],
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": {
+      "oneuxi": "./dist/cli.js"
+    },
+    "exports": {
+      ".": {
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs",
+        "types": "./dist/index.d.ts"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/cli.ts --format esm,cjs --dts --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@oneuxi/button": "workspace:*",
+    "@oneuxi/accordion": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}

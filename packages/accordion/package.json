@@ -1,0 +1,44 @@
+{
+  "name": "@oneuxi/accordion",
+  "version": "0.1.0",
+  "description": "OneUXI Accordion component",
+  "keywords": ["react", "accordion", "ui", "oneuxi"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedebuglab/oneuxi.git",
+    "directory": "packages/accordion"
+  },
+  "homepage": "https://github.com/thedebuglab/oneuxi#readme",
+  "bugs": {
+    "url": "https://github.com/thedebuglab/oneuxi/issues"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/accordion.css"
+  },
+  "sideEffects": ["**/*.css"],
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs",
+        "types": "./dist/index.d.ts"
+      },
+      "./styles.css": "./dist/styles.css"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean && cp src/accordion.css dist/styles.css",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}

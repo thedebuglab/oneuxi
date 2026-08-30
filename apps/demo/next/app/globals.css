@@ -1,0 +1,189 @@
+/* ── Demo globals ─────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Import component styles */
+@import "@oneuxi/button/styles.css";
+@import "@oneuxi/accordion/styles.css";
+
+/* ── Reset & base ─────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--ui-bg);
+  color: var(--ui-fg);
+  line-height: 1.5;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ── Demo layout ──────────────────────────────────────────────── */
+
+.demo-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.demo-header {
+  margin-bottom: 64px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--ui-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.demo-header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ui-fg);
+}
+
+.demo-tagline {
+  font-size: 0.875rem;
+  color: var(--ui-muted);
+}
+
+/* ── Section ──────────────────────────────────────────────────── */
+
+.demo-section {
+  margin-bottom: 64px;
+}
+
+.demo-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ui-fg);
+  margin-bottom: 8px;
+}
+
+.demo-section-desc {
+  font-size: 0.875rem;
+  color: var(--ui-muted);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* ── Row ──────────────────────────────────────────────────────── */
+
+.demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* ── Label ────────────────────────────────────────────────────── */
+
+.demo-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ui-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 72px;
+}
+
+/* ── Demo code block ──────────────────────────────────────────── */
+
+.demo-code {
+  display: inline-block;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.75rem;
+  background: var(--ui-neutral-soft, #f3f4f6);
+  color: var(--ui-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+
+.demo-divider {
+  border: none;
+  border-top: 1px solid var(--ui-border);
+  margin: 48px 0;
+}
+
+/* ── Accordion demo wrapper ───────────────────────────────────── */
+
+.demo-accordion-wrap {
+  margin-bottom: 24px;
+}
+
+/* ── Navigation tabs ──────────────────────────────────────────── */
+
+.demo-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ui-border);
+  margin-bottom: 48px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.demo-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.demo-tab {
+  padding: 12px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ui-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: -1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.demo-tab:hover {
+  color: var(--ui-fg);
+}
+
+.demo-tab[data-active="true"] {
+  color: var(--ui-fg);
+  border-bottom-color: var(--ui-primary);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .demo-page {
+    padding: 32px 16px 64px;
+  }
+
+  .demo-header {
+    margin-bottom: 40px;
+  }
+
+  .demo-row {
+    gap: 8px;
+  }
+}

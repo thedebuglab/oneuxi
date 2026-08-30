@@ -1,0 +1,10 @@
+{
+  "name": "@oneuxi/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OneUXI core design tokens",
+  "type": "module",
+  "exports": {
+    "./styles/tokens.css": "./src/styles/tokens.css"
+  }
+}

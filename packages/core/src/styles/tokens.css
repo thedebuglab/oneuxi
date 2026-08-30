@@ -1,0 +1,126 @@
+/* ============================================================
+   OneUXI Design Tokens — packages/core/src/styles/tokens.css
+   Reference file. Each component's CSS file includes these
+   inline so components are self-contained.
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --ui-bg: #ffffff;
+  --ui-fg: #111111;
+
+  /* Text */
+  --ui-muted: #6b7280;
+
+  /* Borders */
+  --ui-border: #e5e7eb;
+  --ui-border-strong: #d1d5db;
+
+  /* Primary */
+  --ui-primary: #111111;
+  --ui-primary-fg: #ffffff;
+  --ui-primary-hover: #333333;
+  --ui-primary-soft: #f5f5f5;
+  --ui-primary-soft-fg: #111111;
+  --ui-primary-ghost-hover: rgba(17, 17, 17, 0.06);
+
+  /* Neutral */
+  --ui-neutral: #6b7280;
+  --ui-neutral-fg: #ffffff;
+  --ui-neutral-hover: #4b5563;
+  --ui-neutral-soft: #f3f4f6;
+  --ui-neutral-soft-fg: #374151;
+  --ui-neutral-ghost-hover: rgba(107, 114, 128, 0.08);
+  --ui-neutral-outline-hover: rgba(107, 114, 128, 0.06);
+
+  /* Danger */
+  --ui-danger: #dc2626;
+  --ui-danger-fg: #ffffff;
+  --ui-danger-hover: #b91c1c;
+  --ui-danger-soft: #fef2f2;
+  --ui-danger-soft-fg: #dc2626;
+  --ui-danger-ghost-hover: rgba(220, 38, 38, 0.06);
+
+  /* Border radius */
+  --ui-radius-sm: 4px;
+  --ui-radius-md: 6px;
+  --ui-radius-lg: 10px;
+  --ui-radius-full: 9999px;
+
+  /* Spacing */
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-space-5: 20px;
+  --ui-space-6: 24px;
+
+  /* Typography */
+  --ui-font-size-sm: 0.8125rem;
+  --ui-font-size-md: 0.875rem;
+  --ui-font-size-lg: 1rem;
+  --ui-font-weight-medium: 500;
+  --ui-font-weight-semibold: 600;
+  --ui-line-height: 1.5;
+
+  /* Motion */
+  --ui-duration-fast: 120ms;
+  --ui-duration-normal: 180ms;
+  --ui-easing: ease;
+
+  /* Shadow */
+  --ui-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Explicit dark theme via data attribute */
+[data-theme="dark"] {
+  --ui-bg: #0f0f0f;
+  --ui-fg: #f5f5f5;
+  --ui-muted: #9ca3af;
+  --ui-border: #2a2a2a;
+  --ui-border-strong: #3f3f3f;
+
+  --ui-primary: #f5f5f5;
+  --ui-primary-fg: #0f0f0f;
+  --ui-primary-hover: #d1d5db;
+  --ui-primary-soft: #1c1c1c;
+  --ui-primary-soft-fg: #f5f5f5;
+  --ui-primary-ghost-hover: rgba(245, 245, 245, 0.07);
+
+  --ui-neutral-soft: #1a1a1a;
+  --ui-neutral-soft-fg: #9ca3af;
+  --ui-neutral-ghost-hover: rgba(156, 163, 175, 0.08);
+  --ui-neutral-outline-hover: rgba(156, 163, 175, 0.06);
+
+  --ui-danger-soft: #1f0e0e;
+  --ui-danger-soft-fg: #f87171;
+  --ui-danger-ghost-hover: rgba(239, 68, 68, 0.08);
+}
+
+/* System dark mode (respects data-theme="light" override) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ui-bg: #0f0f0f;
+    --ui-fg: #f5f5f5;
+    --ui-muted: #9ca3af;
+    --ui-border: #2a2a2a;
+    --ui-border-strong: #3f3f3f;
+
+    --ui-primary: #f5f5f5;
+    --ui-primary-fg: #0f0f0f;
+    --ui-primary-hover: #d1d5db;
+    --ui-primary-soft: #1c1c1c;
+    --ui-primary-soft-fg: #f5f5f5;
+    --ui-primary-ghost-hover: rgba(245, 245, 245, 0.07);
+
+    --ui-neutral-soft: #1a1a1a;
+    --ui-neutral-soft-fg: #9ca3af;
+    --ui-neutral-ghost-hover: rgba(156, 163, 175, 0.08);
+    --ui-neutral-outline-hover: rgba(156, 163, 175, 0.06);
+
+    --ui-danger-soft: #1f0e0e;
+    --ui-danger-soft-fg: #f87171;
+    --ui-danger-ghost-hover: rgba(239, 68, 68, 0.08);
+  }
+}

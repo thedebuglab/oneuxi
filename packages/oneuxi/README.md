@@ -14,6 +14,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![React 18+](https://img.shields.io/badge/React-18%2B-61dafb?style=flat-square&logo=react)](https://react.dev/)
 [![Next.js 15+](https://img.shields.io/badge/Next.js-15%2B-000000?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Community-26A5E4?style=flat-square&logo=telegram)](https://t.me/thedebuglab)
 
 <br />
 
@@ -125,6 +126,12 @@ export default function Page() {
   ]}
 />
 ```
+
+---
+
+## 💬 Community & Support
+
+Join our Telegram community: **[https://t.me/thedebuglab](https://t.me/thedebuglab)**
 
 ---
 

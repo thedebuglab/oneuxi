@@ -11,6 +11,7 @@
 [![npm version](https://img.shields.io/npm/v/@oneuxi/button?color=111111&style=flat-square)](https://www.npmjs.com/package/@oneuxi/button)
 [![license](https://img.shields.io/github/license/thedebuglab/oneuxi?color=111111&style=flat-square)](https://github.com/thedebuglab/oneuxi/blob/main/LICENSE)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@oneuxi/button?color=111111&style=flat-square)](https://bundlephobia.com/package/@oneuxi/button)
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Community-26A5E4?style=flat-square&logo=telegram)](https://t.me/thedebuglab)
 
 </div>
 
@@ -90,6 +91,12 @@ export default function App() {
 | `unstyled` | `boolean` | `false` | Strips default OneUXI styles |
 | `disabled` | `boolean` | `undefined` | Standard HTML disabled state |
 | `...rest` | `ButtonHTMLAttributes` | — | All native button props supported |
+
+---
+
+## 💬 Community & Support
+
+Join our Telegram community: **[https://t.me/thedebuglab](https://t.me/thedebuglab)**
 
 ---
 

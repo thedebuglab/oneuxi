@@ -17,7 +17,9 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "typecheck": "pnpm -r typecheck",
-    "dev": "pnpm --filter demo-next dev"
+    "dev": "pnpm --filter demo-next dev",
+    "release": "pnpm build && pnpm --filter './packages/**' publish --no-git-checks",
+    "release:patch": "pnpm -r --filter './packages/**' exec npm version patch && pnpm build && pnpm --filter './packages/**' publish --no-git-checks"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",
